@@ -18,11 +18,11 @@
     var delimiter = new Array();
     var tags_callbacks = new Array();
 
-    $.fn.addTag = function (value,options) {
-        var options = jQuery.extend({
+    $.fn.addTag = function (value, options) {
+        var settings = jQuery.extend({
             focus    : false,
             callback : true
-        },options);
+        }, options);
 
         this.each(function () {
             var id = $(this).attr('id');
@@ -34,7 +34,7 @@
 
             value = jQuery.trim(value);
 
-            if (options.unique) {
+            if (settings.unique) {
                 skipTag = $(tagslist).tagExist(value);
             } else {
                 skipTag = false;
@@ -55,13 +55,13 @@
                 tagslist.push(value);
 
                 $('#' + id + '_tag').val('');
-                if (options.focus) {
+                if (settings.focus) {
                     $('#'+id+'_tag').focus();
                 } else {
                     $('#'+id+'_tag').blur();
                 }
 
-                if (options.callback && tags_callbacks[id] && tags_callbacks[id]['onAddTag']) {
+                if (settings.callback && tags_callbacks[id] && tags_callbacks[id]['onAddTag']) {
                     var f = tags_callbacks[id]['onAddTag'];
                     f(value);
                 }
