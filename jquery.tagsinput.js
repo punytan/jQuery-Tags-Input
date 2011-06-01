@@ -116,7 +116,7 @@
     $.fn.importTags = function (str) {
         $('#' + id + '_tagsinput .tag').remove();
         $.fn.tagsInput.importTags(this, str);
-    }
+    };
 
     $.fn.tagsInput = function (options) {
         var settings = jQuery.extend({
@@ -138,8 +138,7 @@
             if (settings.hide)
                 $(this).hide();
 
-            var id = $(this).attr('id')
-
+            var id   = $(this).attr('id');
             var data = jQuery.extend({
                 pid           : id,
                 real_input    : '#' + id,
@@ -215,7 +214,7 @@
                             return false;
 
                         if ( $(event.data.fake_input).val() != $(event.data.fake_input).attr('data-default')) {
-                            if(    ( event.data.minChars <= $(event.data.fake_input).val().length)
+                            if (   ( event.data.minChars <= $(event.data.fake_input).val().length)
                                 && (!event.data.maxChars || (event.data.maxChars >= $(event.data.fake_input).val().length))
                             ) {
                                 $(event.data.real_input).addTag(
@@ -239,10 +238,10 @@
                     // this is only available if autocomplete is not used.
                     $(data.fake_input).bind('blur', data, function (event) {
                         var d = $(this).attr('data-default');
-                        if (  $(event.data.fake_input).val() != ''
+                        if (   $(event.data.fake_input).val() != ''
                             && $(event.data.fake_input).val() != d
                         ) {
-                            if(    ( event.data.minChars <= $(event.data.fake_input).val().length)
+                            if (   ( event.data.minChars <= $(event.data.fake_input).val().length)
                                 && (!event.data.maxChars || (event.data.maxChars >= $(event.data.fake_input).val().length))
                             ) {
                                 $(event.data.real_input).addTag(
@@ -268,7 +267,7 @@
                     if (   event.which == event.data.delimiter.charCodeAt(0)
                         || event.which == 13
                     ) {
-                        if(    ( event.data.minChars <= $(event.data.fake_input).val().length)
+                        if (   ( event.data.minChars <= $(event.data.fake_input).val().length)
                             && (!event.data.maxChars || (event.data.maxChars >= $(event.data.fake_input).val().length))
                         ) {
                             $(event.data.real_input).addTag(
@@ -290,7 +289,7 @@
 
                             $('#' + id).removeTag(escape(last_tag));
                             $(this).trigger('focus');
-                        };
+                        }
                     });
                 }
 
