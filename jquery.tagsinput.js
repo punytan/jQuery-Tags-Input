@@ -34,13 +34,9 @@
 
             value = jQuery.trim(value);
 
-            if (settings.unique) {
-                skipTag = $(tagslist).tagExist(value);
-            } else {
-                skipTag = false;
-            }
+            var skipTag = settings.unique ? $(tagslist).tagExist(value) : false;
 
-            if (value != '' && skipTag != true) {
+            if (value != '' && skipTag == false) {
                 $('<span>').addClass('tag').append(
                     $('<span>').text(value).append('&nbsp;&nbsp;'),
                     $('<a>', {
