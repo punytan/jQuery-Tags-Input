@@ -52,9 +52,9 @@
 
                 $('#' + id + '_tag').val('');
                 if (settings.focus) {
-                    $('#'+id+'_tag').focus();
+                    $('#' + id + '_tag').focus();
                 } else {
-                    $('#'+id+'_tag').blur();
+                    $('#' + id + '_tag').blur();
                 }
 
                 if (settings.callback && tags_callbacks[id] && tags_callbacks[id]['onAddTag']) {
@@ -62,14 +62,14 @@
                     f(value);
                 }
 
-                if(tags_callbacks[id] && tags_callbacks[id]['onChange']) {
+                if (tags_callbacks[id] && tags_callbacks[id]['onChange']) {
                     var i = tagslist.length;
                     var f = tags_callbacks[id]['onChange'];
                     f($(this), tagslist[i]);
                 }
             }
 
-            $.fn.tagsInput.updateTagsField(this,tagslist);
+            $.fn.tagsInput.updateTagsField(this, tagslist);
         });
 
         return false;
